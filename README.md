@@ -2,13 +2,15 @@
 
 # portfile-ts-mode
 
-![GitHub License](https://badgen.net/github/license/judaew/dotfiles)
+![GitHub License](https://badgen.net/github/license/judaew/portfile-ts-mode)
 ![Github Tag](https://badgen.net/github/tag/judaew/portfile-ts-mode)
 
 </div>
 
 A major mode for editing [MacPorts](https://www.macports.org/)
 Portfiles, powered by Emacs's built-in tree-sitter support.
+
+![portfile-ts-mode](https://github.com/user-attachments/assets/3043ec8c-6636-4a9f-a250-0160e1fabebc)
 
 Parser: [tree-sitter-portfile](https://github.com/judaew/tree-sitter-portfile)
 
