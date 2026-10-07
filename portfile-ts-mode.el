@@ -26,9 +26,9 @@
   "Indentation inside { } blocks."
   :type 'integer)
 
-(defcustom portfile-ts-argument-indent-offset 24
+(defcustom portfile-ts-argument-indent-offset 20
   "Column where the value of a top-level command is aligned to.
-MacPorts Portfiles typically use column 24."
+MacPorts Portfiles typically use column 20."
   :type 'integer)
 
 
