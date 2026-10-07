@@ -1,0 +1,1091 @@
+{
+  "phases": [
+    "fetch",
+    "checksum",
+    "extract",
+    "patch",
+    "configure",
+    "build",
+    "test",
+    "destroot",
+    "archive",
+    "install",
+    "activate",
+    "deactivate"
+  ],
+
+  "modifiers": [
+    "append", "prepend", "delete", "replace", "strsed"
+  ],
+
+  "options": [
+    "portmain",
+    "portdepends",
+    "portfetch",
+    "portchecksums",
+    "portextract",
+    "portpatch",
+    "portconfigure",
+    "portbuild",
+    "portdestroot",
+    "portinstall",
+    "portuninstall",
+    "portactivate",
+    "portdeactivate",
+    "porttest",
+    "portdistcheck",
+    "portlivecheck",
+    "portstartupitem",
+    "portload",
+    "portunload",
+    "portreload"
+  ],
+
+  "portmain": [
+    "name",
+    "version",
+    "revision",
+    "epoch",
+    "categories",
+    "maintainers",
+    "long_description",
+    "description",
+    "homepage",
+    "license",
+    "conflicts",
+    "replaced_by",
+    "known_fail",
+    "worksrcdir",
+    "filesdir",
+    "distname",
+    "libpath",
+    "distpath",
+    "notes",
+
+    "default_variants",
+    "macosx_deployment_target",
+    "universal_variant",
+    "universal_possible",
+    "supported_archs",
+    "depends_skip_archcheck",
+    "installs_libs",
+    "license_noconflict",
+
+    "compiler.cpath",
+    "compiler.library_path",
+    "compiler.log_verbose_output",
+    "compiler.limit_flags",
+    "compiler.support_environment_paths",
+    "compiler.support_environment_sdkroot",
+    "add_users",
+    "use_xcode"
+  ],
+
+  "portdepends": [
+    "depends_fetch",
+    "depends_extract",
+    "depends_patch",
+    "depends_build",
+    "depends_run",
+    "depends_lib",
+    "depends_test"
+  ],
+
+  "portfetch": [
+    "master_sites",
+    "patch_sites",
+    "distfiles",
+    "patchfiles",
+    "use_tar",
+    "use_bzip2",
+    "use_lzma",
+    "use_xz",
+    "use_zip",
+    "use_7z",
+    "use_lzip",
+    "use_dmg",
+    "dist_subdir",
+    "fetch.type",
+    "fetch.user",
+    "fetch.password",
+    "fetch.use_epsv",
+    "fetch.ignore_sslcert",
+    "fetch.user_agent",
+    "master_sites.mirror_subdir",
+    "patch_sites.mirror_subdir",
+    "bzr.url",
+    "bzr.revision",
+    "cvs.module",
+    "cvs.root",
+    "cvs.password",
+    "cvs.date",
+    "cvs.tag",
+    "cvs.method",
+    "svn.url",
+    "svn.revision",
+    "git.cmd",
+    "git.url",
+    "git.branch",
+    "hg.cmd",
+    "hg.url",
+    "hg.tag"
+  ],
+
+  "portchecksums": [
+    "checksums",
+    "checksums.skip"
+  ],
+
+  "checksums_type": [
+    "md5", "sha1", "rmd160", "sha256", "size"
+  ],
+
+  "portextract": [
+    "extract.only",
+    "extract.mkdir",
+    "extract.asroot",
+    "extract.dir",
+    "extract.cmd",
+    "extract.args",
+    "extract.pre_args",
+    "extract.post_args"
+  ],
+
+  "portpatch": [
+    "patch.asroot",
+    "patch.dir",
+    "patch.cmd",
+    "patch.args",
+    "patch.pre_args",
+    "patch.post_args"
+  ],
+
+  "portconfigure": [
+    "configure.cxx",
+    "configure.cxx_archflags",
+    "configure.cxx_stdlib",
+    "configure.cxxflags",
+    "configure.objcxx",
+    "configure.objcxx_archflags",
+    "configure.objcxxflags",
+    "configure.universal_cxxflags",
+    "configure.universal_objcxxflags",
+
+    "compiler.require_fortran",
+    "compiler.fortran_fallback",
+
+    "configure.env",
+    "configure.args",
+    "configure.pre_args",
+    "configure.post_args",
+    "configure.cmd",
+    "configure.nice",
+    "configure.dir",
+
+    "autoreconf.dir",
+    "autoreconf.env",
+    "autoreconf.args",
+    "autoreconf.pre_args",
+    "autoreconf.post_args",
+    "autoconf.dir",
+    "autoconf.env",
+    "autoconf.args",
+    "autoconf.pre_args",
+    "autoconf.post_args",
+    "automake.dir",
+    "automake.args",
+    "xmkmf.cmd",
+    "xmkmf.dir",
+
+    "use_configure",
+    "use_autoreconf",
+    "use_automake",
+    "use_autoconf",
+    "use_xmkmf",
+
+    "autoreconf.cmd",
+    "automake.cmd",
+    "autoconf.cmd",
+
+    "configure.asroot",
+    "configure.m32",
+    "configure.m64",
+    "configure.march",
+    "configure.mtune",
+    "configure.optflags",
+    "configure.cflags",
+    "configure.objcflags",
+    "configure.cppflags",
+    "configure.ldflags",
+    "configure.libs",
+    "configure.fflags",
+    "configure.f90flags",
+    "configure.fcflags",
+    "configure.classpath",
+
+    "configure.perl",
+    "configure.python",
+    "configure.ruby",
+    "configure.install",
+    "configure.awk",
+    "configure.bison",
+    "configure.pkg_config",
+    "configure.pkg_config_path",
+
+    "configure.build_arch",
+    "configure.ld_archflags",
+    "configure.sdk_version",
+    "configure.sdkroot",
+    "configure.sysroot",
+    "configure.developer_dir",
+    "configure.universal_archs",
+    "configure.universal_args",
+    "configure.universal_cflags",
+    "configure.universal_objcflags",
+    "configure.universal_cppflags",
+    "configure.universal_ldflags",
+
+    "configure.ccache",
+    "configure.distcc",
+    "configure.pipe",
+    "configure.cc",
+    "configure.cpp",
+    "configure.objc",
+    "configure.f77",
+    "configure.f90",
+    "configure.fc",
+    "configure.javac",
+    "configure.compiler",
+    "compiler.blacklist",
+    "compiler.whitelist",
+    "compiler.fallback",
+
+    "configure.cc_archflags",
+    "configure.objc_archflags",
+    "configure.f77_archflags",
+    "configure.f90_archflags",
+    "configure.fc_archflags",
+
+    "compiler.c_standard",
+    "compiler.cxx_standard",
+    "compiler.openmp_version",
+    "compiler.mpi",
+    "compiler.thread_local_storage",
+
+    "configure.compiler.add_deps",
+    "configure.checks.implicit_function_declaration",
+    "configure.checks.implicit_function_declaration.whitelist"
+  ],
+
+  "portbuild": [
+    "build.asroot",
+    "build.jobs",
+    "build.target",
+    "use_parallel_build",
+    "build.dir",
+    "build.cmd",
+    "build.nice",
+    "build.args",
+    "build.pre_args",
+    "build.post_args",
+    "build.type",
+    "build.env",
+    "build.type.add_deps"
+  ],
+
+  "portdestroot": [
+    "destroot.target",
+    "destroot.destdir",
+    "destroot.clean",
+    "destroot.keepdirs",
+    "destroot.umask",
+    "destroot.violate_mtree",
+    "destroot.asroot",
+    "destroot.delete_la_files",
+
+    "destroot.dir",
+    "destroot.cmd",
+    "destroot.args",
+    "destroot.pre_args",
+    "destroot.post_args",
+    "destroot.nice",
+    "destroot.env"
+  ],
+
+  "portinstall": [
+    "install.asroot"
+  ],
+
+  "portuninstall": [
+    "uninstall.asroot"
+  ],
+
+  "portactivate": [
+    "activate.asroot"
+  ],
+
+  "portdeactivate": [
+    "deactivate.asroot"
+  ],
+
+  "porttest": [
+    "test.run",
+    "test.target",
+    "test.dir",
+    "test.cmd",
+    "test.args",
+    "test.pre_args",
+    "test.post_args",
+    "test.env"
+    ],
+
+  "portdistcheck": [
+    "distcheck.type"
+  ],
+
+  "portlivecheck": [
+    "livecheck.url",
+    "livecheck.type",
+    "livecheck.md5",
+    "livecheck.regex",
+    "livecheck.name",
+    "livecheck.distname",
+    "livecheck.version",
+    "livecheck.ignore_sslcert",
+    "livecheck.compression",
+    "livecheck.curloptions"
+  ],
+
+  "portstartupitem": [
+    "startupitem",
+    "startupitem.autostart",
+    "startupitem.debug",
+    "startupitem.create",
+    "startupitem.executable",
+    "startupitem.user",
+    "startupitem.group",
+    "startupitem.init",
+    "startupitem.install",
+    "startupitem.location",
+    "startupitem.logevents",
+    "startupitem.logfile",
+    "startupitem.name",
+    "startupitem.netchange",
+    "startupitem.pidfile",
+    "startupitem.plist",
+    "startupitem.requires",
+    "startupitem.restart",
+    "startupitem.start",
+    "startupitem.stop",
+    "startupitem.type",
+    "startupitem.uniquename",
+    "startupitem.daemondo.verbosity",
+    "startupitem.custom_file",
+    "startupitem.logfile.stderr"
+  ],
+
+  "startupitem_pid": [
+    "none", "auto", "clean", "manual"
+  ],
+
+  "portload": [
+    "load.asroot"
+  ],
+
+  "portunload": [
+    "unload.asroot"
+  ],
+
+  "portreload": [
+    "reload.asroot"
+  ],
+
+  "builtins": [
+    "if",
+    "else",
+    "elseif",
+    "set",
+    "incr",
+    "switch",
+    "xinstall",
+    "exec",
+    "fs-traverse",
+    "readdir",
+    "vercmp",
+    "reinplace",
+    "strsed",
+    "file",
+    "copy",
+    "move",
+    "delete",
+    "touch",
+    "ln",
+    "system",
+    "foreach",
+    "variant_isset",
+    "variant_set",
+    "ui_debug",
+    "ui_error",
+    "ui_info",
+    "ui_msg",
+    "ui_warn"
+  ],
+
+  "portgroups": [
+    "R",
+    "active_variants",
+    "app",
+    "aspelldict",
+    "bazel",
+    "bitbucket",
+    "boost",
+    "cargo",
+    "clang_dependency",
+    "cmake",
+    "compiler_wrapper",
+    "compilers",
+    "conflicts_build",
+    "crossbinutils",
+    "crossgcc",
+    "crossgdb",
+    "deprecated",
+    "developerversion",
+    "fortran",
+    "gitea",
+    "github",
+    "gitlab",
+    "gnu_info",
+    "gnustep",
+    "gobject_introspection",
+    "golang",
+    "gpg_verify",
+    "haskell_stack",
+    "janet",
+    "java",
+    "legacysupport",
+    "linear_algebra",
+    "luarocks",
+    "makefile",
+    "muniversal",
+    "npm",
+    "ocaml",
+    "octave",
+    "openssl",
+    "perl5",
+    "php",
+    "pure",
+    "python",
+    "qmake",
+    "qt5",
+    "qt6",
+    "ruby",
+    "rust",
+    "select",
+    "sourcehut",
+    "stub",
+    "textlive",
+    "tree_sitter",
+    "waf",
+    "wxWidgets",
+    "x11font",
+    "xcode",
+    "xcode_workaround",
+    "xcodeversion",
+    "xmlcatalog"
+  ],
+
+  "R": [
+    "R.domain",
+    "R.author",
+    "R.package",
+    "R.tag_prefix",
+    "R.tag_suffix",
+    "R.setup"
+  ],
+
+  "active_variants": [
+    "active_variants",
+    "require_active_variants"
+  ],
+
+  "app": [
+    "app.create",
+    "app.name",
+    "app.executable",
+    "app.icon",
+    "app.short_version_string",
+    "app.version",
+    "app.identifier",
+    "app.retina",
+    "app.dark_mode",
+    "app.privacy_microphone",
+    "app.privacy_camera",
+    "app.privacy_contacts",
+    "app.privacy_calendars",
+    "app.privacy_photo",
+    "app.hide_dock_icon",
+    "app.use_launch_script"
+  ],
+
+  "aspelldict": [
+    "aspelldict.setup"
+  ],
+
+  "bazel": [
+    "bazel.version",
+    "bazel.min_xcode",
+    "bazel.build_cmd",
+    "bazel.build_cmd_opts",
+    "bazel.build_opts",
+    "bazel.build_target",
+    "bazel.run_bazel_fetch",
+    "bazel.post_build_cmd",
+    "bazel.max_idle_secs",
+    "bazel.max_cpu_fraction",
+    "bazel.max_ram_fraction",
+    "bazel.limit_build_jobs",
+    "bazel.extra_build_cmd_opts",
+    "bazel.extra_build_opts",
+    "bazel.configure_cmd",
+    "bazel.configure_args",
+    "bazel.configure_pre_args",
+    "bazel.cxx_standard",
+    "bazel.path",
+    "bazel.python_version",
+    "bazel.fix_wheel_deployment_target"
+  ],
+
+  "bitbucket": [
+    "bitbucket.author",
+    "bitbucket.project",
+    "bitbucket.version",
+    "bitbucket.tag_prefix",
+    "bitbucket.homepage",
+    "bitbucket.master_sites",
+    "bitbucket.tarball_from",
+    "bitbucket.livecheck_branch",
+    "bitbucket.setup"
+  ],
+
+  "boost": [
+    "boost.version",
+    "boost.depends_type",
+    "boost.require_numpy"
+  ],
+
+  "cargo": [
+    "cargo.bin",
+    "cargo.home",
+    "cargo.crates",
+    "cargo.crates_github"
+  ],
+
+  "clang_dependency": [
+    "clang_dependency.extra_versions"
+  ],
+
+  "cmake": [
+    "cmake.build_dir",
+    "cmake.source_dir",
+    "cmake.generator",
+    "cmake.generator_blacklist",
+    "cmake.build_type",
+    "cmake.install_prefix",
+    "cmake.install_rpath",
+    "cmake.module_path",
+    "cmake.out_of_source",
+    "cmake.set_osx_architectures",
+    "cmake.set_c_standard",
+    "cmake.set_cxx_standard"
+  ],
+
+  "compiler_wrapper": [
+    "compwrap.add_compiler_flags",
+    "compwrap.add_legacysupport_flags",
+    "compwrap.print_compiler_command",
+    "compwrap.append_arch_flags",
+    "compwrap.compiler_pre_flags",
+    "compwrap.compiler_post_flags",
+    "compwrap.compiler_args_forward",
+    "compwrap.compilers_to_wrap",
+    "compwrap.ccache_supported_compilers"
+  ],
+
+  "compilers": [
+    "compilers.variants",
+    "compilers.gcc_variants",
+    "compilers.clear_archflags",
+    "compilers.allow_arguments_mismatch"
+  ],
+
+  "conflicts_build": [
+    "conflicts_build"
+  ],
+
+  "crossbinutils": [
+    "crossbinutils.target",
+    "crossbinutils.setup"
+  ],
+
+  "crossgcc": [
+    "crossgcc.target",
+    "crossgcc.languages",
+    "crossgcc.setup",
+    "crossgcc.setup_libc"
+  ],
+
+  "crossgdb": [
+    "crossgdb.setup"
+  ],
+
+  "deprecated": [
+    "deprecated.maximum_xcodeversion",
+    "deprecated.maximum_osmajor",
+    "deprecated.upstream_support",
+    "deprecated.macports_support",
+    "deprecated.eol_version"
+  ],
+
+  "developerversion": [
+    "minimum_developerversions"
+  ],
+
+  "fortran": [
+    "fortran.profile"
+  ],
+
+  "gitea": [
+    "gitea.author",
+    "gitea.project",
+    "gitea.version",
+    "gitea.tag_prefix",
+    "gitea.tag_suffix",
+    "gitea.domain",
+    "gitea.homepage",
+    "gitea.master_sites",
+    "gitea.livecheck.branch",
+    "gitea.livecheck.regex"
+  ],
+
+  "github": [
+    "github.author",
+    "github.project",
+    "github.version",
+    "github.tag_prefix",
+    "github.tag_suffix",
+    "github.homepage",
+    "github.raw",
+    "github.master_sites",
+    "github.tarball_from",
+    "github.livecheck.branch",
+    "github.livecheck.regex",
+    "github.setup"
+  ],
+
+  "gitlab": [
+    "gitlab.author",
+    "gitlab.project",
+    "gitlab.version",
+    "gitlab.tag_prefix",
+    "gitlab.tag_suffix",
+    "gitlab.instance",
+    "gitlab.homepage",
+    "gitlab.master_sites",
+    "gitlab.livecheck.branch",
+    "gitlab.livecheck.regex",
+    "gitlab.setup"
+  ],
+
+  "gnu_info": [
+    "gnu_info.name",
+    "gnu_info.files",
+    "gnu_info.dir",
+    "gnu_info.dirfile",
+    "gnu_info.install_info"
+  ],
+
+  "gnustep": [
+    "gnustep.cc"
+  ],
+
+  "gobject_introspection": [
+    "gobject_introspection"
+  ],
+
+  "golang": [
+    "go.package",
+    "go.domain",
+    "go.author",
+    "go.project",
+    "go.version",
+    "go.tag_prefix",
+    "go.tag_suffix",
+    "go.bin",
+    "go.vendors",
+    "go.setup"
+  ],
+
+  "gpg_verify": [
+    "gpg_verify.use_gpg_verification",
+    "gpg_verify.gpg",
+    "gpg_verify.gpg_homedir"
+  ],
+
+  "haskell_stack": [
+    "haskell_stack.system_ghc",
+    "haskell_stack.stack_root"
+  ],
+
+  "hunspelldict": [
+    "hunspelldict.locale",
+    "hunspelldict.setup"
+  ],
+
+  "janet": [
+    "janet.link_bin"
+  ],
+
+  "java": [
+    "java.version",
+    "java.home",
+    "java.fallback"
+  ],
+
+  "legacysupport": [
+    "legacysupport.newest_darwin_requires_legacy",
+    "legacysupport.use_static",
+    "legacysupport.redirect_bins",
+    "legacysupport.use_mp_libcxx",
+    "compiler.limit_flags"
+  ],
+
+  "linear_algebra": [
+    "linalglib",
+    "cmake_linalglib",
+    "blas_only",
+    "veclibfort",
+    "linalg.setup"
+  ],
+
+  "luarocks": [
+    "luarocks.default_branch",
+    "luarocks.branch",
+    "luarocks.branches",
+    "luarocks.dependencies",
+    "luarocks.bin",
+    "luarocks.bindir",
+    "luarocks.rocksdir",
+    "luarocks.suffix",
+    "luarocks.link_binaries",
+    "luarocks.link_binaries_suffix",
+    "luarocks.setup"
+  ],
+
+  "makefile": [
+    "makefile.override",
+    "makefile.has_destdir",
+    "makefile.prefix_name",
+    "muniversal.arch_tools",
+    "makefile.setup"
+  ],
+
+  "muniversal": [
+    "merger_configure_compiler",
+    "merger_configure_cppflags",
+    "merger_configure_cflags",
+    "merger_configure_cxxflags",
+    "merger_configure_objcflags",
+    "merger_configure_objcxxflags",
+    "merger_configure_fflags",
+    "merger_configure_f90flags",
+    "merger_configure_fcflags",
+    "merger_configure_ldflags",
+    "merger_configure_build_env",
+    "merger_configure_build_args",
+    "merger_configure_test_env",
+    "merger_configure_test_args",
+    "merger_configure_destroot_env",
+    "merger_configure_destroot_args",
+    "merger_host",
+    "merger_arch_flag",
+    "merger_arch_compiler",
+    "merger_dont_diff",
+    "merger_must_run_binaries",
+    "merger_no_3_archs",
+    "universal_archs_supported"
+  ],
+
+  "npm": [
+    "npm.rootname",
+    "npm.nodejs_version",
+    "npm.version"
+  ],
+
+  "ocaml": [
+    "ocaml.bin",
+    "ocaml.build_type",
+    "ocaml.destroot_type",
+    "ocaml.package_dir",
+    "ocaml.stublib_dir",
+    "ocaml.use_findlib",
+    "ocaml.setup",
+    "oasis.setup",
+    "oasis.build_docs",
+    "dune.root",
+    "dune.packages",
+    "dune.profile",
+    "dune.build.target",
+    "topkg.setup"
+  ],
+
+  "octave": [
+    "octave.module",
+    "octave.config_h",
+    "octave.setup"
+  ],
+
+  "openssl": [
+    "openssl.branch",
+    "openssl.depends_type",
+    "openssl.configure"
+  ],
+
+  "perl5": [
+    "perl5.branch",
+    "perl5.branches",
+    "perl5.default_branch",
+    "perl5.default_variant",
+    "perl5.variant",
+    "perl5.set_default_variant",
+    "perl5.conflict_variants",
+    "perl5.require_variant",
+    "perl5.version",
+    "perl5.major",
+    "perl5.arch",
+    "perl5.lib",
+    "perl5.bindir",
+    "perl5.archlib",
+    "perl5.bin",
+    "perl5.link_binaries",
+    "perl5.link_binaries_suffix",
+    "perl5.use_module_build",
+    "perl5.create_variants",
+    "perl5.setup"
+  ],
+
+  "php": [
+    "php.branches",
+    "php.latest_stable_branch",
+    "php.default_branch",
+    "php.rootname",
+    "php.create_subports",
+    "php.extension_ini",
+    "php.extensions",
+    "php.extensions.zend",
+    "php.build_dirs",
+    "php.pecl",
+    "php.pecl.name",
+    "php.pecl.prerelease",
+    "php.pecl.regex",
+    "php.branch",
+    "php.config",
+    "php.extension_dir",
+    "php.ini",
+    "php.ini_dir",
+    "php.ize",
+    "php.suffix"
+  ],
+
+  "pure": [
+    "pure.setup"
+  ],
+
+  "python": [
+    "python.rootname",
+    "python.versions",
+    "python.version",
+    "python.default_version",
+    "python.consistent_destroot",
+    "python.branch",
+    "python.prefix",
+    "python.bin",
+    "python.lib",
+    "python.libdir",
+    "python.include",
+    "python.pkgd",
+    "python.pep517",
+    "python.pep517_backend",
+    "python.add_dependencies",
+    "python.add_archflags",
+    "python.set_compiler",
+    "python.set_cxx_stdlib",
+    "python.set_sdkroot",
+    "python.link_binaries",
+    "python.link_binaries_suffix",
+    "python.move_binaries",
+    "python.move_binaries_suffix"
+  ],
+
+  "qmake": [
+    "qt4.debug_variant",
+    "qt5.add_spec",
+    "qt5.debug_variant",
+    "qt5.top_level",
+    "qt5.cxxflags",
+    "qt5.ldflags",
+    "qt5.frameworkpaths",
+    "qt5.spec_cmd"
+  ],
+
+  "qt5": [
+    "qt5.depends_component",
+    "qt5.depends_build_component",
+    "qt5.depends_runtime_component",
+    "qt5.kde_variant",
+    "qt5.min_version"
+  ],
+
+  "qt6": [
+    "available_qt_versions",
+    "qt6.name",
+    "qt6.base_port",
+    "qt6.version",
+    "qt6.min_version",
+    "qt_qmake_spec"
+  ],
+
+  "ruby": [
+    "ruby.default_branch",
+    "ruby.branch",
+    "ruby.branches",
+    "ruby.bin",
+    "ruby.rdoc",
+    "ruby.gem",
+    "ruby.rake",
+    "ruby.bindir",
+    "ruby.gemdir",
+    "ruby.suffix",
+    "ruby.api_version",
+    "ruby.lib",
+    "ruby.archlib",
+    "ruby.version",
+    "ruby.arch",
+    "ruby.config_rubyprog_name",
+    "ruby.link_binaries",
+    "ruby.link_binaries_suffix",
+    "ruby.setup"
+  ],
+
+  "rust": [
+    "cargo.offline_cmd",
+    "cargo.update",
+    "rust.upstream_deployment_target",
+    "rust.upstream_archs",
+    "rust.use_cctools",
+    "rust.archiver",
+    "rust.ranlib",
+    "rust.rt_static_libs",
+    "rust.add_compiler_runtime",
+    "configure.ld",
+    "rust.llvm.legacy",
+    "rust.llvm.cflags",
+    "rust.llvm.cxxflags",
+    "rust.llvm.ldflags"
+  ],
+
+  "select": [
+    "select.group",
+    "select.file",
+    "select.entries"
+  ],
+
+  "sourcehut": [
+    "sourcehut.author",
+    "sourcehut.project",
+    "sourcehut.version",
+    "sourcehut.tag_prefix",
+    "sourcehut.tag_suffix",
+    "sourcehut.instance",
+    "sourcehut.homepage",
+    "sourcehut.master_sites",
+    "sourcehut.livecheck.branch",
+    "sourcehut.livecheck.regex",
+    "sourcehut.setup"
+  ],
+
+  "stub": [
+    "stub.subport_name",
+    "stub.lib_dep"
+  ],
+
+  "textlive": [
+    "texlive.mktexlsr",
+    "texlive.removedocdepends",
+    "texlive.exclude",
+    "texlive.binaries",
+    "texlive.formats",
+    "texlive.languages",
+    "texlive.maps",
+    "texlive.forceupdatecnf",
+    "texlive.use_mktexlsr",
+    "texlive.use_mktexlsr_on_deactivate",
+    "texlive.texmfport"
+  ],
+
+  "tree_sitter": [
+    "tree_sitter.libname"
+  ],
+
+  "waf": [
+    "waf.python_branch",
+    "waf.python_version",
+    "waf.python"
+  ],
+
+  "wxWidgets": [
+    "wxWidgets.name",
+    "wxWidgets.port",
+    "wxWidgets.version",
+    "wxWidgets.prefix",
+    "wxWidgets.wxdir",
+    "wxWidgets.wxconfig",
+    "wxWidgets.wxrc",
+    "wxWidgets.sdk",
+    "wxWidgets.macosx_version_min",
+    "wxWidgets.use"
+  ],
+
+  "x11font": [
+    "x11font.setup"
+  ],
+
+  "xcode": [
+    "xcode.project",
+    "xcode.target",
+    "xcode.scheme",
+    "xcode.configuration",
+    "xcode.build.settings",
+    "xcode.destroot.type",
+    "xcode.destroot.path",
+    "xcode.destroot.settings"
+  ],
+
+  "xcode_workaround": [
+    "xcode_workaround.type",
+    "xcode_workaround.fixed_xcode_version",
+    "xcode_workaround.os_versions"
+  ],
+
+  "xcodeversion": [
+    "minimum_xcodeversions"
+  ],
+
+  "xmlcatalog": [
+    "xml.catalog",
+    "xml.addtocatalog",
+    "xml.entity",
+    "xml.rewrite",
+    "sgml.catalog",
+    "sgml.addtocatalog"
+  ]
+}
