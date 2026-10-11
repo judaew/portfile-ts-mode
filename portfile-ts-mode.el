@@ -13,7 +13,7 @@
 
 ;;; Code:
 
-;; TODO: outline-minor-mode, eldoc
+;; TODO: eldoc
 
 (require 'treesit)
 (require 'json)
@@ -319,7 +319,7 @@ MacPorts Portfiles typically use column 20."
              (treesit-ready-p 'portfile))
     (setq treesit-primary-parser (treesit-parser-create 'portfile))
 
-    ;; Comments.
+    ;; Comments
     (setq-local comment-start "# ")
     (setq-local comment-end "")
     (setq-local comment-start-skip (rx "#" (* (syntax whitespace))))
