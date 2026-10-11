@@ -19,6 +19,7 @@
 (require 'json)
 (eval-when-compile (require 'rx))
 (require 'portfile-ts-commands)
+;; (require 'portfile-ts-flymake)
 
 ;;; User options
 ;;  ------------
