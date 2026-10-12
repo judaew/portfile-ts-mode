@@ -203,8 +203,8 @@ the command."
 (transient-define-infix portfile-ts--infix-args ()
   "Additional arguments for the port command."
   :class 'transient-option
-  :argument "-a="
-  :description "Port args"
+  :argument "-o="
+  :description "Port options"
   :reader (lambda (prompt _initial _history)
             (read-from-minibuffer prompt "")))
 
@@ -216,26 +216,30 @@ the command."
   :reader (lambda (prompt _initial _history)
             (read-from-minibuffer prompt "")))
 
-;;;###autoload (autoload 'portfile-ts-menu "portfile-ts-commands" nil t)
+;;;###autoload
 (transient-define-prefix portfile-ts-menu ()
   "Port commands for current Portfile."
-  [["Maintenance"
+  [["Portfile"
+    ("e" "Edit" portfile-ts-edit)
+    ("c" "Commit file" portfile-ts-commit-file)
+    ("u" "Bump" portfile-ts-bump)]
+   ["Checks"
     ("l" "Lint" portfile-ts-lint)
-    ("B" "Bump" portfile-ts-bump)
+    ("L" "Livecheck" portfile-ts-livecheck)
     ("C" "Checksum" portfile-ts-checksum)]
    ["Build"
     ("f" "Fetch" portfile-ts-fetch)
-    ("e" "Extract" portfile-ts-extract)
+    ("E" "Extract" portfile-ts-extract)
     ("b" "Build" portfile-ts-build)
-    ("d" "Destroot" portfile-ts-destroot)]
+    ("d" "Destroot" portfile-ts-destroot)
+    ("x" "Clean all" portfile-ts-clean-all)]
    ["Install"
     ("i" "Install" portfile-ts-install)
-    ("u" "Uninstall" portfile-ts-uninstall)]
-   ["Activate"
+    ("u" "Uninstall" portfile-ts-uninstall)
     ("a" "Activate" portfile-ts-activate)
     ("d" "Deactivate" portfile-ts-deactivate)]
    ["Arguments"
-    ("-a" "Port args" portfile-ts--infix-args)
+    ("-o" "Port options" portfile-ts--infix-args)
     ("-e" "Environment" portfile-ts--infix-env)]])
 
 (provide 'portfile-ts-commands)
