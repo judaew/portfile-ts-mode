@@ -4,6 +4,7 @@
 ;;; Code:
 
 (require 'transient)
+(require 'comint)
 (require 'cl-lib)
 (require 'vc)
 (require 'subr-x)
@@ -60,7 +61,6 @@ the command."
          (port-opt (transient-arg-value "-o=" transient-arguments))
          (env-vars (transient-arg-value "-e=" transient-arguments))
          (port-name (portfile-ts--select-port))
-         (extra-args (transient-args 'portfile-ts-menu))
          (cmd (mapconcat
                #'identity
                (delq nil
@@ -75,8 +75,7 @@ the command."
                       (when port-opt
                         (split-string-and-unquote port-opt))))
                " "))
-         (buffer (get-buffer-create "*port*"))
-         proc)
+         (buffer (get-buffer-create "*port*")))
     (when (and (buffer-file-name) (buffer-modified-p))
       (save-buffer))
     (with-current-buffer buffer
@@ -86,21 +85,20 @@ the command."
       (comint-mode)
       (local-set-key (kbd "q") #'delete-window)
       (goto-address-mode 1)
-      (setq proc
-            (make-process
-             :name "port"
-             :buffer buffer
-             :command (list shell-file-name shell-command-switch cmd)
-             :connection-type 'pty
-             :noquery t
-             :filter #'comint-output-filter
-             :sentinel
-             (when func
-               (lambda (process _event)
-                 (when (and (memq (process-status process)
-                                  '(exit signal))
-                            (= (process-exit-status process) 0))
-                   (funcall func))))))
+      (make-process
+       :name "port"
+       :buffer buffer
+       :command (list shell-file-name shell-command-switch cmd)
+       :connection-type 'pty
+       :noquery t
+       :filter #'comint-output-filter
+       :sentinel
+       (when func
+         (lambda (process _event)
+           (when (and (memq (process-status process)
+                            '(exit signal))
+                      (= (process-exit-status process) 0))
+             (funcall func)))))
       (display-buffer buffer))))
 
 ;;; Port commands
