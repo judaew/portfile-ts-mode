@@ -5,6 +5,8 @@
 
 (require 'transient)
 (require 'cl-lib)
+(require 'vc)
+(require 'subr-x)
 
 (defun portfile-ts--port-name ()
   "Return the port name from current Portfile buffer."
@@ -139,6 +141,11 @@ the command."
   (interactive)
   (portfile-ts--run "destroot" :sudo t))
 
+(defun portfile-ts-clean-all ()
+  "Clean all files for the port."
+  (interactive)
+  (portfile-ts--run "clean" :sudo t :args '("--all" "-f")))
+
 (defun portfile-ts-install ()
   "Install the port."
   (interactive)
@@ -161,6 +168,37 @@ the command."
 
 ;;; Transient
 ;;  ---------
+;;;###autoload
+(defun portfile-ts-edit (port)
+  "Open the Portfile for PORT."
+  (interactive (list (read-string "Port: ")))
+  (let ((file
+         (with-temp-buffer
+           (unless (zerop (process-file "port" nil t nil
+                                        "file" port))
+             (user-error "Cannot find Portfile for %s" port))
+           (string-trim (buffer-string)))))
+    (unless (file-readable-p file)
+      (user-error "Portfile is not readable: %s" file))
+    (find-file file)))
+
+(defun portfile-ts-commit-file ()
+  "Commit the current file using VC."
+  (interactive)
+  (unless buffer-file-name
+    (user-error "Current buffer is not visiting a file"))
+  (let ((file buffer-file-name)
+        (backend (vc-backend buffer-file-name)))
+    (unless backend
+      (user-error "File is not under version control"))
+    (let ((message
+           (read-string
+            (format "Commit %s: " (file-name-nondirectory file)))))
+      (when (string-empty-p (string-trim message))
+        (user-error "Commit message cannot be empty"))
+      (vc-checkin (list file) backend message)
+      (message "Committed %s" (file-name-nondirectory file)))))
+
 
 (transient-define-infix portfile-ts--infix-args ()
   "Additional arguments for the port command."
