@@ -45,14 +45,18 @@
       (completing-read "Port: " (cons port subports)
                        nil t nil nil port))))
 
-(cl-defun portfile-ts--run (action &key sudo func)
-  "Run port ACTION async.
+(cl-defun portfile-ts--run (action &key sudo func options args)
+  "Run port ACTION asynchronously.
 When SUDO is non-nil, run the command through sudo.
-Call FUNC when the process status changes."
-  (let* ((args (transient-args 'portfile-ts-menu))
-         (port-args (transient-arg-value "-a" args))
-         (env-vars (transient-arg-value "-e" args))
+Call FUNC when the process exits successfully.
+OPTIONS is a list of MacPorts option values to pass to the
+command.  ARGS is a list of additional arguments to pass to
+the command."
+  (let* ((transient-arguments (transient-args 'portfile-ts-menu))
+         (port-opt (transient-arg-value "-o=" transient-arguments))
+         (env-vars (transient-arg-value "-e=" transient-arguments))
          (port-name (portfile-ts--select-port))
+         (extra-args (transient-args 'portfile-ts-menu))
          (cmd (mapconcat
                #'identity
                (delq nil
@@ -60,9 +64,12 @@ Call FUNC when the process status changes."
                       (when env-vars
                         (split-string-and-unquote env-vars))
                       (when sudo '("sudo"))
-                      (list "port" action port-name)
-                      (when port-args
-                        (split-string-and-unquote port-args))))
+                      (list "port" action)
+                      args
+                      (list port-name)
+                      options
+                      (when port-opt
+                        (split-string-and-unquote port-opt))))
                " "))
          (buffer (get-buffer-create "*port*"))
          proc)
@@ -73,17 +80,23 @@ Call FUNC when the process status changes."
         (goto-char (point-max))
         (insert (format "\n$ %s\n" cmd)))
       (comint-mode)
+      (local-set-key (kbd "q") #'delete-window)
       (goto-address-mode 1)
-      (let ((process-connection-type t))
-        (setq proc (start-file-process
-                    "port" buffer shell-file-name
-                    shell-command-switch cmd)))
-      (set-process-filter proc #'comint-output-filter)
-      (when func
-        (set-process-sentinel
-         proc
-         (lambda (_proc _event)
-           (funcall func))))
+      (setq proc
+            (make-process
+             :name "port"
+             :buffer buffer
+             :command (list shell-file-name shell-command-switch cmd)
+             :connection-type 'pty
+             :noquery t
+             :filter #'comint-output-filter
+             :sentinel
+             (when func
+               (lambda (process _event)
+                 (when (and (memq (process-status process)
+                                  '(exit signal))
+                            (= (process-exit-status process) 0))
+                   (funcall func))))))
       (display-buffer buffer))))
 
 ;;; Commands
