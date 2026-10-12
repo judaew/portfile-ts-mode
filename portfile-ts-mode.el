@@ -17,9 +17,7 @@
 
 (require 'treesit)
 (require 'json)
-(eval-when-compile (require 'rx))
-(require 'portfile-ts-commands)
-;; (require 'portfile-ts-flymake)
+(require 'rx)
 
 ;;; User options
 ;;  ------------
@@ -224,7 +222,7 @@ MacPorts Portfiles typically use column 20."
 (defun portfile-ts--argument-indent (node parent _bol)
   "Indent NODE or PARENT portfile-ts-argument-indent-offset column after the command."
   (let ((node (or node parent)))
-    (when-let ((command (treesit-parent-until node "command")))
+    (when-let* ((command (treesit-parent-until node "command")))
       (while (not (treesit-node-eq (treesit-node-parent node) command))
         (setq node (treesit-node-parent node)))
       (unless (member (treesit-node-field-name node) '("name" "body"))
