@@ -19,20 +19,21 @@
 (require 'json)
 (require 'rx)
 
-;;; User options
-;;  ------------
+(defgroup portfile-ts-mode nil
+  "Major mode for MacPorts Portfiles, powered by tree-sitter."
+  :prefix "portfile-ts-"
+  :group 'languages)
 
 (defcustom portfile-ts-indent-offset 4
   "Indentation inside { } blocks."
-  :type 'integer)
+  :type 'integer
+  :group 'portfile-ts-mode)
 
 (defcustom portfile-ts-argument-indent-offset 20
   "Column where the value of a top-level command is aligned to.
 MacPorts Portfiles typically use column 20."
-  :type 'integer)
-
-;;; Core options
-;;  ------------
+  :type 'integer
+  :group 'portfile-ts-mode)
 
 (add-to-list
  'treesit-language-source-alist
@@ -40,16 +41,13 @@ MacPorts Portfiles typically use column 20."
             :commit "379fa2ac2f040ceae259db6c7e5d6e9965370292")
  t)
 
-(defgroup portfile-ts-mode nil
-  "Tree-sitter support for MacPorts Portfiles."
-  :prefix "portfile-ts-")
-
 ;; TODO: basic commands: lint, bump, build, destroot, install, uninstall; imenu
 ;; advance commands: details port, format file, goto def/var, goto deps
 ;; hard todos: structual commands
 (defvar-keymap portfile-ts-mode-map
   :parent prog-mode-map)
 
+(declare-function portfile-ts-menu "portfile-ts-commands" ())
 (define-key portfile-ts-mode-map
             (kbd "C-x c") #'portfile-ts-menu)
 
