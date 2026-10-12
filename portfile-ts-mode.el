@@ -31,7 +31,6 @@
 MacPorts Portfiles typically use column 20."
   :type 'integer)
 
-
 ;;; Core options
 ;;  ------------
 
@@ -223,7 +222,7 @@ MacPorts Portfiles typically use column 20."
 ;;  ----------
 
 (defun portfile-ts--argument-indent (node parent _bol)
-  "Indent NODE or PARENT portfile-ts-argument-indent-offset column after the command."
+  "Indent NODE or PARENT relative to the column after the command."
   (let ((node (or node parent)))
     (when-let* ((command (treesit-parent-until node "command")))
       (while (not (treesit-node-eq (treesit-node-parent node) command))
