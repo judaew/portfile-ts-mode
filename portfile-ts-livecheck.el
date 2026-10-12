@@ -193,8 +193,11 @@ When ERROR is non-nil, highlight both version columns."
   "Open the Portfile for the port at point."
   (interactive)
   (let ((row (portfile-ts-livecheck--row-data)))
-    (unless row (user-error "No port on this line"))
-    (portfile-ts-edit (car row))))
+    (unless row
+      (user-error "No port on this line"))
+    (let ((window (get-mru-window nil nil t)))
+      (with-selected-window (or window (selected-window))
+        (portfile-ts-edit (car row))))))
 
 (defun portfile-ts-livecheck-copy-field ()
   "Copy the full value of the column at point."
