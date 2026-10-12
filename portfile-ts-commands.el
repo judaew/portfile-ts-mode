@@ -200,13 +200,6 @@ the command."
     ("-a" "Port args" portfile-ts--infix-args)
     ("-e" "Environment" portfile-ts--infix-env)]])
 
-(defun portfile-ts-commands-setup ()
-  "Setup port commands."
-  (define-key portfile-ts-mode-map (kbd "C-x c") #'portfile-ts-menu))
-
-;;;###autoload
-(add-hook 'portfile-ts-mode-hook #'portfile-ts-commands-setup)
-
 (provide 'portfile-ts-commands)
 
 ;;; portfile-ts-commands.el ends here

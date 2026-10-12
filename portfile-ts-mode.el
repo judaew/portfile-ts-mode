@@ -51,6 +51,9 @@ MacPorts Portfiles typically use column 20."
 (defvar-keymap portfile-ts-mode-map
   :parent prog-mode-map)
 
+(define-key portfile-ts-mode-map
+            (kbd "C-x c") #'portfile-ts-menu)
+
 (defvar portfile-ts--syntax-table
   (let ((table (make-syntax-table prog-mode-syntax-table)))
     (modify-syntax-entry ?#  "<" table)
