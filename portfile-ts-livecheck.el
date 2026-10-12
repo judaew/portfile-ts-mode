@@ -11,19 +11,23 @@
 (defcustom portfile-ts-livecheck-maintainer ""
   "Maintainer used by `portfile-ts-livecheck'.
 When empty, prompt for a maintainer."
-  :type 'string)
+  :type 'string
+  :group 'portfile-ts-mode)
 
 (defcustom portfile-ts-livecheck-port-width 17
   "Width of the Port column in the livecheck table."
-  :type 'integer)
+  :type 'integer
+  :group 'portfile-ts-mode)
 
 (defcustom portfile-ts-livecheck-version-width 10
   "Width of the Old or New column in the livecheck table."
-  :type 'integer)
+  :type 'integer
+  :group 'portfile-ts-mode)
 
 (defface portfile-ts-livecheck-error-face
   '((t :inherit error))
-  "Face used for livecheck errors.")
+  "Face used for livecheck errors."
+  :group 'portfile-ts-mode)
 
 (defvar-local portfile-ts-livecheck--rows nil
   "Livecheck results keyed by port name.")
