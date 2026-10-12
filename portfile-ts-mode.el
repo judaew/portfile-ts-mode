@@ -19,6 +19,8 @@
 (require 'json)
 (require 'rx)
 
+(autoload 'portfile-ts-menu "portfile-ts-commands" nil t)
+
 (defgroup portfile-ts-mode nil
   "Major mode for MacPorts Portfiles, powered by tree-sitter."
   :prefix "portfile-ts-"
@@ -47,7 +49,6 @@ MacPorts Portfiles typically use column 20."
 (defvar-keymap portfile-ts-mode-map
   :parent prog-mode-map)
 
-(declare-function portfile-ts-menu "portfile-ts-commands" ())
 (define-key portfile-ts-mode-map
             (kbd "C-x c") #'portfile-ts-menu)
 
