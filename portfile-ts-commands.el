@@ -9,7 +9,7 @@
 (defun portfile-ts--port-name ()
   "Return the port name from current Portfile buffer."
   (let ((file (buffer-file-name)))
-    (unless (and file (string-match-p "/Portfile\'" file))
+    (unless (and file (string-match-p "/Portfile\\'" file))
       (user-error "Cannot determine port name"))
     (file-name-nondirectory
      (directory-file-name (file-name-directory file)))))
