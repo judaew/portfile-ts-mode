@@ -187,6 +187,8 @@ When ERROR is non-nil, highlight both version columns."
   (let ((port (tabulated-list-get-id)))
     (when port (assoc-string port portfile-ts-livecheck--rows))))
 
+(declare-function portfile-ts-edit "portfile-ts-commands" (port))
+
 (defun portfile-ts-livecheck-edit-port ()
   "Open the Portfile for the port at point."
   (interactive)
