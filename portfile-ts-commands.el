@@ -115,14 +115,14 @@ the command."
 (defun portfile-ts-checksum ()
   "Generate checksums for the port's distfiles."
   (interactive)
-  (portfile-ts--run "checksum" :sudo t))
+  (portfile-ts--run "checksum"))
 
 (defun portfile-ts-bump ()
   "Bump the port version and revert buffer when done."
   (interactive)
   (portfile-ts--run
    "bump"
-   :func (lambda () (revert-buffer :ignore-auto :noconfirm))))
+   :sudo t :func (lambda () (revert-buffer :ignore-auto :noconfirm))))
 
 (defun portfile-ts-extract ()
   "Extract the port's distfiles."
