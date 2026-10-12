@@ -218,7 +218,6 @@ the command."
   :reader (lambda (prompt _initial _history)
             (read-from-minibuffer prompt "")))
 
-;;;###autoload
 (transient-define-prefix portfile-ts-menu ()
   "Port commands for current Portfile."
   [["Portfile"
