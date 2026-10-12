@@ -47,6 +47,8 @@
       (completing-read "Port: " (cons port subports)
                        nil t nil nil port))))
 
+;;; Process executing
+
 (cl-defun portfile-ts--run (action &key sudo func options args)
   "Run port ACTION asynchronously.
 When SUDO is non-nil, run the command through sudo.
@@ -101,7 +103,7 @@ the command."
                    (funcall func))))))
       (display-buffer buffer))))
 
-;;; Commands
+;;; Port commands
 ;;  --------
 
 (defun portfile-ts-lint ()
@@ -166,8 +168,6 @@ the command."
   (interactive)
   (portfile-ts--run "deactivate" :sudo t))
 
-;;; Transient
-;;  ---------
 ;;;###autoload
 (defun portfile-ts-edit (port)
   "Open the Portfile for PORT."
@@ -199,6 +199,8 @@ the command."
       (vc-checkin (list file) backend message)
       (message "Committed %s" (file-name-nondirectory file)))))
 
+;;; Transient menu
+;;  --------------
 
 (transient-define-infix portfile-ts--infix-args ()
   "Additional arguments for the port command."
