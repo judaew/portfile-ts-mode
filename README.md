@@ -92,7 +92,7 @@ sidebar is opened.
 The sidebar displays the old and new versions reported by `port livecheck`,
 highighting errors when a check fails.
 
-![portfile-ts-livecheck](https://github.com/user-attachments/assets/cc2c8a24-64de-4f93-aa0c-523b83e6d2f0)
+<img src="https://github.com/user-attachments/assets/cc2c8a24-64de-4f93-aa0c-523b83e6d2f0" alt="portfile-ts-livecheck" width="50%">
 
 Available keybindings:
 
