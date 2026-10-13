@@ -205,9 +205,9 @@ the command."
 (defun portfile-ts-output-toggle ()
   "Toggle the *port* buffer at the bottom of the frame."
   (interactive)
-  (if-let ((window (get-buffer-window "*port*")))
+  (if-let* ((window (get-buffer-window "*port*")))
       (quit-window nil window)
-    (when-let ((buffer (get-buffer "*port*")))
+    (when-let* ((buffer (get-buffer "*port*")))
       (display-buffer-in-side-window
        buffer
        '((side . bottom)

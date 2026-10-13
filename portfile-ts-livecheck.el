@@ -244,7 +244,7 @@ When ERROR is non-nil, highlight both version columns."
 (defun portfile-ts-livecheck-toggle ()
   "Toggle the Port Livecheck sidebar."
   (interactive)
-  (if-let ((window (get-buffer-window "*Port Livecheck*")))
+  (if-let* ((window (get-buffer-window "*Port Livecheck*")))
       (quit-window nil window)
     (portfile-ts-livecheck)))
 
