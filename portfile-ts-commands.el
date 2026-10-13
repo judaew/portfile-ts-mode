@@ -216,6 +216,8 @@ the command."
   :reader (lambda (prompt _initial _history)
             (read-from-minibuffer prompt "")))
 
+(declare-function portfile-ts-livecheck "portfile-ts-livecheck" nil nil)
+
 (transient-define-prefix portfile-ts-menu ()
   "Port commands for current Portfile."
   [["Portfile"
