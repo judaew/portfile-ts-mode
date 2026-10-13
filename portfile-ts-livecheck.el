@@ -86,7 +86,7 @@ When ERROR is non-nil, highlight both version columns."
      portfile-ts-livecheck-version-width
      portfile-ts-livecheck-version-width
      (* 2 tabulated-list-padding)
-     4))
+     6))
 
 ;;; Output parsing
 
