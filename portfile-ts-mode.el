@@ -10,6 +10,17 @@
 ;; Keywords: languages, macports, portfile
 
 ;;; Commentary:
+;;
+;; `portfile-ts-mode' provides a tree-sitter-based major mode for
+;; editing MacPorts Portfiles,
+;;
+;; Features include syntax highlight, indentation, completion, and
+;; navigation between Portfile constructs.  The package also provides
+;; commands for common MacPorts operations and livecheck interface for
+;; checking versions of ports maintained by a specified maintainer.
+;;
+;; See `portfile-ts-commands.el' and `portfile-ts-livecheck.el' for
+;; details.
 
 ;;; Code:
 
@@ -45,9 +56,7 @@ MacPorts Portfiles typically use column 20."
             :commit "379fa2ac2f040ceae259db6c7e5d6e9965370292")
  t)
 
-;; TODO: basic commands: lint, bump, build, destroot, install, uninstall; imenu
-;; advance commands: details port, format file, goto def/var, goto deps
-;; hard todos: structual commands
+;; TODO: imenu, details port, format file, goto def/var, goto deps
 (defvar-keymap portfile-ts-mode-map
   :parent prog-mode-map)
 

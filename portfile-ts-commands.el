@@ -1,6 +1,29 @@
 ;;; portfile-ts-commands.el --- Port commands for MacPorts -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2026
+;;
+;; Author: Vadym-Valdis Yudaiev <judaew@outlook.com>
+;; URL: https://github.com/judaew/portfile-ts-mode
+;; SPDX-License-Identifier: MIT
+;; Version: 0.3.0
+;; Package-Requires: ((emacs "30.1"))
+;; Keywords: languages, macports, portfile
+
 ;;; Commentary:
+;;
+;; Provides commands for common MacPorts operations, including
+;; building, installing, updating and cleaning ports.
+;;
+;; All commands are available throught `portfile-ts-menu', accesable
+;; from a Portfile with C-x c.
+;;
+;; The `-e' option in the transient menu accepts environment variable
+;; assignents, such as `CC=clang'.  The `-o' option accepts Portfile
+;; option overrides, such as `build_arch=arm64'
+;;
+;; `portfile-ts-output-toggle' toggles the visibility of the `*port*'
+;; output buffer and can be bound to a key.
+
 ;;; Code:
 
 (require 'transient)
