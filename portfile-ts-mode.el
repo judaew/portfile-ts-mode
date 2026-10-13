@@ -5,7 +5,7 @@
 ;; Author: Vadym-Valdis Yudaiev <judaew@outlook.com>
 ;; URL: https://github.com/judaew/portfile-ts-mode
 ;; SPDX-License-Identifier: MIT
-;; Version: 0.2.1
+;; Version: 0.3.0
 ;; Package-Requires: ((emacs "30.1"))
 ;; Keywords: languages, macports, portfile
 
@@ -19,7 +19,9 @@
 (require 'json)
 (require 'rx)
 
+(autoload 'portfile-ts-edit "portfile-ts-commands" nil t)
 (autoload 'portfile-ts-menu "portfile-ts-commands" nil t)
+(autoload 'portfile-ts-livecheck "portfile-ts-livecheck" nil t)
 
 (defgroup portfile-ts-mode nil
   "Major mode for MacPorts Portfiles, powered by tree-sitter."
