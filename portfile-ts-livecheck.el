@@ -240,6 +240,14 @@ When ERROR is non-nil, highlight both version columns."
   (portfile-ts-livecheck--stop-process)
   (quit-window))
 
+;;;###autoload
+(defun portfile-ts-livecheck-toggle ()
+  "Toggle the Port Livecheck sidebar."
+  (interactive)
+  (if-let ((window (get-buffer-window "*Port Livecheck*")))
+      (quit-window nil window)
+    (portfile-ts-livecheck)))
+
 ;;; Major mode
 
 (define-derived-mode portfile-ts-livecheck-mode

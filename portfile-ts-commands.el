@@ -99,7 +99,11 @@ the command."
                             '(exit signal))
                       (= (process-exit-status process) 0))
              (funcall func)))))
-      (display-buffer buffer))))
+      (display-buffer-in-side-window
+       buffer
+       '((side . bottom)
+         (slot . 0)
+         (window-height . 0.3))))))
 
 ;;; Port commands
 ;;  --------
@@ -196,6 +200,19 @@ the command."
         (user-error "Commit message cannot be empty"))
       (vc-checkin (list file) backend message)
       (message "Committed %s" (file-name-nondirectory file)))))
+
+;;;###autoload
+(defun portfile-ts-output-toggle ()
+  "Toggle the *port* buffer at the bottom of the frame."
+  (interactive)
+  (if-let ((window (get-buffer-window "*port*")))
+      (quit-window nil window)
+    (when-let ((buffer (get-buffer "*port*")))
+      (display-buffer-in-side-window
+       buffer
+       '((side . bottom)
+         (slot . 0)
+         (window-height . 0.3))))))
 
 ;;; Transient menu
 ;;  --------------
