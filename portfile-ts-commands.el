@@ -252,10 +252,10 @@ the command."
     ("d" "Destroot" portfile-ts-destroot)
     ("x" "Clean all" portfile-ts-clean-all)]
    ["Install"
-    ("i" "Install" portfile-ts-install)
-    ("u" "Uninstall" portfile-ts-uninstall)
-    ("a" "Activate" portfile-ts-activate)
-    ("d" "Deactivate" portfile-ts-deactivate)]
+    ("I" "Install" portfile-ts-install)
+    ("U" "Uninstall" portfile-ts-uninstall)
+    ("A" "Activate" portfile-ts-activate)
+    ("D" "Deactivate" portfile-ts-deactivate)]
    ["Arguments"
     ("-o" "Port options" portfile-ts--infix-args)
     ("-e" "Environment" portfile-ts--infix-env)]])
