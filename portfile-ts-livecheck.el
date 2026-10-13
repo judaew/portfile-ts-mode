@@ -1,7 +1,34 @@
 ;;; portfile-ts-livecheck.el --- Maintainer livecheck sidebar -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2026
+;;
+;; Author: Vadym-Valdis Yudaiev <judaew@outlook.com>
+;; URL: https://github.com/judaew/portfile-ts-mode
+;; SPDX-License-Identifier: MIT
+;; Version: 0.3.0
+;; Package-Requires: ((emacs "30.1"))
+;; Keywords: languages, macports, portfile
+
 ;;; Commentary:
-;; Display MacPorts livecheck results in a compact sidebar.
+;;
+;; Provides a sidebar for displaying MacPorts livecheck results for ports
+;; maintained by a specified maintainer.
+;;
+;; The maintainer is configured through
+;; `portfile-ts-livecheck-maintainer'.  If empty, the user is prompted
+;; to enter a maintainer when opening the sidebar.
+;;
+;; Results include old and new versions, with errors highlighted.  The
+;; following keybindings are available in the sidebar:
+;; RET  Open the Portfile for the selected port.
+;; q    Stop livecheck and close the sidebar
+;; u    Refresh the results
+;; w    Copy the value of the current cell
+;; m    Copy an update message in the format
+;;      "<port>: update to <version>"
+;;
+;; `portfile-ts-livecheck-toggle' toggles the visibility of the livecheck
+;; sidebar and can be bound to a key.
 
 ;;; Code:
 
