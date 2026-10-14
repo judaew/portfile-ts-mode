@@ -47,16 +47,16 @@
     (save-excursion
       (goto-char (point-min))
       (when (re-search-forward
-             "^python\.versions[[:space:]]+\(.+\)$" nil t)
+             "^python\\.versions[[:space:]]+\\(.+\\)$" nil t)
         (dolist (version (split-string (match-string 1)))
           (push (format "py%s-%s" version port) subports)))
       ;; TODO: ruby.branches pattern
       ;; (goto-char (point-min))
       ;; (when (re-search-forward
-      ;;        "^ruby\.branches[[:space:]]+\(.+\)$" nil t)
+      ;;        "^ruby\\.branches[[:space:]]+\\(.+\\)$" nil t)
       (goto-char (point-min))
       (while (re-search-forward
-              "^subport[[:space:]]+\([^[:space:]]+\)[[:space:]]+{" nil t)
+              "^subport[[:space:]]+\\([^[:space:]]+\\)[[:space:]]+{" nil t)
         (let ((name (match-string 1)))
           (unless (equal name port)
             (push name subports)))))
