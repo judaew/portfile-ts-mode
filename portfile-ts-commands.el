@@ -49,7 +49,8 @@
       (when (re-search-forward
              "^python\\.versions[[:space:]]+\\(.+\\)$" nil t)
         (dolist (version (split-string (match-string 1)))
-          (push (format "py%s-%s" version port) subports)))
+          (push (format "py%s-%s" version (string-remove-prefix "py-" port))
+                subports)))
       ;; TODO: ruby.branches pattern
       ;; (goto-char (point-min))
       ;; (when (re-search-forward
