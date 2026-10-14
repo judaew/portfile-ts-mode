@@ -434,52 +434,76 @@
   "portgroups": [
     "R",
     "active_variants",
+    "apache2",
     "app",
     "aspelldict",
     "bazel",
     "bitbucket",
     "boost",
+    "buildjobs",
+    "bun",
     "cargo",
+    "cgit",
     "clang_dependency",
     "cmake",
+    "codeberg",
+    "common_lisp",
     "compiler_wrapper",
     "compilers",
     "conflicts_build",
     "crossbinutils",
     "crossgcc",
     "crossgdb",
+    "dart",
     "deprecated",
     "developerversion",
+    "elisp",
+    "ffmpeg",
     "fortran",
     "gitea",
     "github",
     "gitlab",
     "gnu_info",
+    "gnuradio",
     "gnustep",
+    "go_toolchain",
     "gobject_introspection",
     "golang",
     "gpg_verify",
+    "haskell_cabal",
     "haskell_stack",
     "janet",
     "java",
     "legacysupport",
     "linear_algebra",
+    "love",
+    "lua",
     "luarocks",
+    "luarocks_org",
     "makefile",
+    "maven",
+    "meson",
+    "mpi",
     "muniversal",
+    "notabug",
     "npm",
+    "obsolete",
     "ocaml",
     "octave",
     "openssl",
     "perl5",
     "php",
+    "pub",
     "pure",
     "python",
     "qmake",
+    "qmake5",
+    "qmake6",
     "qt5",
     "qt6",
     "ruby",
     "rust",
+    "rust_build",
     "select",
     "sourcehut",
     "stub",
@@ -508,6 +532,10 @@
     "require_active_variants"
   ],
 
+  "apache2": [
+    "apxsInstall"
+  ],
+
   "app": [
     "app.create",
     "app.name",
@@ -524,7 +552,12 @@
     "app.privacy_calendars",
     "app.privacy_photo",
     "app.hide_dock_icon",
-    "app.use_launch_script"
+    "app.use_launch_script",
+    "app.sign",
+    "app.signing_identity",
+    "app.signing_entitlements",
+    "app.signing_args",
+    "app.manual_post_destroot"
   ],
 
   "aspelldict": [
@@ -564,6 +597,7 @@
     "bitbucket.master_sites",
     "bitbucket.tarball_from",
     "bitbucket.livecheck_branch",
+    "bitbucket.api_endpoint",
     "bitbucket.setup"
   ],
 
@@ -573,11 +607,44 @@
     "boost.require_numpy"
   ],
 
+  "buildjobs": [
+    "buildjobs.max_cpus",
+    "buildjobs.max_ram_gb",
+    "buildjobs.reserve_ram_gb",
+    "buildjobs.limit_build_jobs",
+    "buildjobs.max_ram_fraction",
+    "buildjobs.max_cpu_fraction"
+  ],
+
+  "bun": [
+    "bun.rootname",
+    "bun.version",
+    "bun.trusted_dependencies",
+    "bun.add_dependencies",
+    "bun.minimum_release_age"
+  ],
+
   "cargo": [
     "cargo.bin",
     "cargo.home",
+    "cargo.dir",
     "cargo.crates",
-    "cargo.crates_github"
+    "cargo.offline_cmd",
+    "cargo.crates_github",
+    "cargo.update"
+  ],
+
+  "cgit": [
+    "cgit.url",
+    "cgit.project",
+    "cgit.version",
+    "cgit.tag_prefix",
+    "cgit.tag_suffix",
+    "cgit.homepage",
+    "cgit.master_sites",
+    "cgit.livecheck.branch",
+    "cgit.livecheck.regex",
+    "cgit.setup"
   ],
 
   "clang_dependency": [
@@ -599,6 +666,34 @@
     "cmake.set_cxx_standard"
   ],
 
+  "codeberg": [
+    "codeberg.author",
+    "codeberg.project",
+    "codeberg.version",
+    "codeberg.tag_prefix",
+    "codeberg.tag_suffix",
+    "codeberg.homepage",
+    "codeberg.master_sites",
+    "codeberg.livecheck.branch",
+    "codeberg.livecheck.regex",
+    "codeberg.setup"
+  ],
+
+  "common_lisp": [
+    "common_lisp.prefix",
+    "common_lisp.build",
+    "common_lisp.threads",
+    "common_lisp.ffi",
+    "common_lisp.sbcl",
+    "common_lisp.ecl",
+    "common_lisp.clisp",
+    "common_lisp.ccl",
+    "common_lisp.abcl",
+    "common_lisp.build_run",
+    "common_lisp.systems",
+    "common_lisp.large_heap"
+  ],
+
   "compiler_wrapper": [
     "compwrap.add_compiler_flags",
     "compwrap.add_legacysupport_flags",
@@ -615,7 +710,9 @@
     "compilers.variants",
     "compilers.gcc_variants",
     "compilers.clear_archflags",
-    "compilers.allow_arguments_mismatch"
+    "compilers.allow_arguments_mismatch",
+    "compilers.add_gcc_rpath_support",
+    "compilers.add_flang_variants"
   ],
 
   "conflicts_build": [
@@ -638,6 +735,10 @@
     "crossgdb.setup"
   ],
 
+  "dart": [
+    "dart.bin"
+  ],
+
   "deprecated": [
     "deprecated.maximum_xcodeversion",
     "deprecated.maximum_osmajor",
@@ -647,7 +748,25 @@
   ],
 
   "developerversion": [
-    "minimum_developerversions"
+    "minimum_developerversions",
+    "developerversion"
+  ],
+
+  "elisp": [
+    "elisp.source_dir",
+    "elisp.files",
+    "elisp.install_dir",
+    "elisp.byte_compile",
+    "elisp.autoloads",
+    "elisp.site_start_priority",
+    "elisp.setup",
+    "elisp.install_site_start_snippet",
+    "elpa.setup"
+  ],
+
+  "ffmpeg": [
+    "ffmpeg.version",
+    "ffmpeg.prefix"
   ],
 
   "fortran": [
@@ -664,7 +783,8 @@
     "gitea.homepage",
     "gitea.master_sites",
     "gitea.livecheck.branch",
-    "gitea.livecheck.regex"
+    "gitea.livecheck.regex",
+    "gitea.setup"
   ],
 
   "github": [
@@ -704,8 +824,26 @@
     "gnu_info.install_info"
   ],
 
+  "gnuradio": [
+    "gnuradio.type",
+    "gnuradio.python_version",
+    "gnuradio.default_python_variant"
+  ],
+
   "gnustep": [
     "gnustep.cc"
+  ],
+
+  "go_toolchain": [
+    "go_toolchain.oldest_packaged",
+    "go_toolchain.floor",
+    "go_toolchain.wrapped",
+    "go_toolchain.min_darwin",
+    "go_toolchain.min_default",
+    "go_toolchain.ceiling",
+    "go_toolchain.range",
+    "go_toolchain.satisfies",
+    "go_toolchain.setup"
   ],
 
   "gobject_introspection": [
@@ -720,8 +858,10 @@
     "go.version",
     "go.tag_prefix",
     "go.tag_suffix",
+    "go.offline_build",
     "go.bin",
     "go.vendors",
+    "go.toolchain_min",
     "go.setup"
   ],
 
@@ -731,9 +871,33 @@
     "gpg_verify.gpg_homedir"
   ],
 
+  "haskell_cabal": [
+    "haskell_cabal.cabal_root",
+    "haskell_cabal.bin",
+    "haskell_cabal.env",
+    "haskell_cabal.global_flags",
+    "haskell_cabal.update_flags",
+    "haskell_cabal.build_dir",
+    "haskell_cabal.use_prebuilt",
+    "haskell_cabal.installsubdir",
+    "haskell_cabal.datadir",
+    "haskell_cabal.docdir",
+    "haskell_cabal.htmldir",
+    "haskell_cabal.haddockdir",
+    "haskell_cabal.sysconfdir",
+    "haskell_cabal.installdir_args",
+    "haskell_cabal.bindirs"
+  ],
+
   "haskell_stack": [
+    "haskell_stack.bin",
+    "haskell_stack.bindirs",
+    "haskell_stack.default_args",
+    "haskell_stack.env",
+    "haskell_stack.stack_root",
     "haskell_stack.system_ghc",
-    "haskell_stack.stack_root"
+    "haskell_stack.use_init",
+    "haskell_stack.yaml"
   ],
 
   "hunspelldict": [
@@ -748,15 +912,15 @@
   "java": [
     "java.version",
     "java.home",
-    "java.fallback"
+    "java.fallback",
+    "java.deptypes"
   ],
 
   "legacysupport": [
     "legacysupport.newest_darwin_requires_legacy",
     "legacysupport.use_static",
     "legacysupport.redirect_bins",
-    "legacysupport.use_mp_libcxx",
-    "compiler.limit_flags"
+    "legacysupport.use_mp_libcxx"
   ],
 
   "linear_algebra": [
@@ -765,6 +929,29 @@
     "blas_only",
     "veclibfort",
     "linalg.setup"
+  ],
+
+  "love": [
+    "love.branch",
+    "love.extract",
+    "love.file",
+    "love.dir",
+    "love.exclude",
+    "love",
+    "love.exe"
+  ],
+
+  "lua": [
+    "lua.version",
+    "lua.dir",
+    "lua.bin",
+    "lua.include",
+    "lua.lib",
+    "lua.modules",
+    "lua.finds_default",
+    "lua.finds_versioned",
+    "lua.default_version",
+    "lua.branches"
   ],
 
   "luarocks": [
@@ -778,7 +965,22 @@
     "luarocks.suffix",
     "luarocks.link_binaries",
     "luarocks.link_binaries_suffix",
-    "luarocks.setup"
+    "luarocks.setup",
+    "luarocks.module",
+    "luarocks.rockspec",
+    "luarocks.version",
+    "luarocks.build_type",
+    "luarocks.pure_lua",
+    "luarocks.lua_path",
+    "luarocks.lua_cpath",
+    "luarocks.search_lua_dir"
+  ],
+
+  "luarocks_org": [
+    "luarocks.rock",
+    "luarocks.uploader",
+    "luarocks.homepage",
+    "luarocks.worksrcdir"
   ],
 
   "makefile": [
@@ -789,36 +991,87 @@
     "makefile.setup"
   ],
 
+  "maven": [
+    "maven.skip_tests",
+    "maven.goal",
+    "maven.gradle_home"
+  ],
+
+  "meson": [
+    "meson.wrap_mode",
+    "meson.native_file",
+    "meson.native.binaries"
+  ],
+
+  "mpi": [
+    "mpi_active_variant_name",
+    "mpi_variant_name",
+    "mpi.enforce_variant",
+    "mpi_variant_isset",
+    "mpi.setup"
+  ],
+
   "muniversal": [
-    "merger_configure_compiler",
-    "merger_configure_cppflags",
-    "merger_configure_cflags",
-    "merger_configure_cxxflags",
-    "merger_configure_objcflags",
-    "merger_configure_objcxxflags",
-    "merger_configure_fflags",
-    "merger_configure_f90flags",
-    "merger_configure_fcflags",
-    "merger_configure_ldflags",
-    "merger_configure_build_env",
-    "merger_configure_build_args",
-    "merger_configure_test_env",
-    "merger_configure_test_args",
-    "merger_configure_destroot_env",
-    "merger_configure_destroot_args",
-    "merger_host",
-    "merger_arch_flag",
-    "merger_arch_compiler",
-    "merger_dont_diff",
     "merger_must_run_binaries",
     "merger_no_3_archs",
-    "universal_archs_supported"
+    "merger_arch_flag",
+    "merger_arch_compiler",
+    "muniversal.run_binaries",
+    "muniversal.no_3_archs",
+    "muniversal.dont_diff",
+    "muniversal.combine",
+    "muniversal.equivalent",
+    "muniversal.architectures",
+    "muniversal.build_arch",
+    "os.cpu64bit_capable",
+    "muniversal.arch_flag",
+    "muniversal.arch_compiler",
+    "muniversal.arch_build_compiler",
+    "muniversal.can_run.arm64",
+    "muniversal.can_run.x86_64",
+    "muniversal.can_run.i386",
+    "muniversal.can_run.ppc",
+    "muniversal.can_run.ppc64",
+    "muniversal.is_cross.arm64",
+    "muniversal.is_cross.x86_64",
+    "muniversal.is_cross.i386",
+    "muniversal.is_cross.ppc",
+    "muniversal.is_cross.ppc64",
+    "triplet.vendor",
+    "triplet.os",
+    "triplet.host_cmd",
+    "triplet.build_cmd",
+    "triplet.add_host",
+    "triplet.add_build",
+    "triplet.cpu.arm64",
+    "triplet.cpu.x86_64",
+    "triplet.cpu.i386",
+    "triplet.cpu.ppc",
+    "triplet.cpu.ppc64"
+  ],
+
+  "notabug": [
+    "notabug.author",
+    "notabug.project",
+    "notabug.version",
+    "notabug.tag_prefix",
+    "notabug.tag_suffix",
+    "notabug.homepage",
+    "notabug.master_sites",
+    "notabug.livecheck.branch",
+    "notabug.livecheck.regex",
+    "notabug.setup"
   ],
 
   "npm": [
     "npm.rootname",
     "npm.nodejs_version",
-    "npm.version"
+    "npm.version",
+    "npm.add_dependencies"
+  ],
+
+  "obsolete": [
+    "obsolete.note"
   ],
 
   "ocaml": [
@@ -839,6 +1092,7 @@
   ],
 
   "octave": [
+    "octave.author",
     "octave.module",
     "octave.config_h",
     "octave.setup"
@@ -851,9 +1105,8 @@
   ],
 
   "perl5": [
-    "perl5.branch",
-    "perl5.branches",
     "perl5.default_branch",
+    "perl5.branches",
     "perl5.default_variant",
     "perl5.variant",
     "perl5.set_default_variant",
@@ -896,6 +1149,13 @@
     "php.suffix"
   ],
 
+  "pub": [
+    "pub.home",
+    "pub.get_args",
+    "pub.packages",
+    "pub.home"
+  ],
+
   "pure": [
     "pure.setup"
   ],
@@ -915,8 +1175,13 @@
     "python.pkgd",
     "python.pep517",
     "python.pep517_backend",
+    "python.test_framework",
     "python.add_dependencies",
     "python.add_archflags",
+    "python.add_cflags",
+    "python.add_cxxflags",
+    "python.add_fflags",
+    "python.add_ldflags",
     "python.set_compiler",
     "python.set_cxx_stdlib",
     "python.set_sdkroot",
@@ -927,7 +1192,10 @@
   ],
 
   "qmake": [
-    "qt4.debug_variant",
+    "qt4.debug_variant"
+  ],
+
+  "qmake5": [
     "qt5.add_spec",
     "qt5.debug_variant",
     "qt5.top_level",
@@ -937,21 +1205,36 @@
     "qt5.spec_cmd"
   ],
 
+  "qmake6": [
+    "qt6.add_spec",
+    "qt6.debug_variant",
+    "qt6.top_level",
+    "qt6.cxxflags",
+    "qt6.ldflags",
+    "qt6.frameworkpaths",
+    "qt6.spec_cmd"
+  ],
+
   "qt5": [
     "qt5.depends_component",
     "qt5.depends_build_component",
     "qt5.depends_runtime_component",
     "qt5.kde_variant",
-    "qt5.min_version"
+    "qt5.min_version",
+    "qt5.mac_sdk",
+    "qt_qmake_spec"
   ],
 
   "qt6": [
-    "available_qt_versions",
-    "qt6.name",
-    "qt6.base_port",
-    "qt6.version",
-    "qt6.min_version",
-    "qt_qmake_spec"
+    "qt6.find_method",
+    "qt6.depends_build",
+    "qt6.depends_lib",
+    "qt6.depends_run",
+    "qt6.depends_test",
+    "qt6.dir",
+    "qt6.blacklist",
+    "qt6.base",
+    "qt6.version"
   ],
 
   "ruby": [
@@ -977,20 +1260,26 @@
   ],
 
   "rust": [
-    "cargo.offline_cmd",
-    "cargo.update",
-    "rust.upstream_deployment_target",
-    "rust.upstream_archs",
-    "rust.use_cctools",
-    "rust.archiver",
-    "rust.ranlib",
+    "rust.remap",
+    "rust.flags",
     "rust.rt_static_libs",
-    "rust.add_compiler_runtime",
-    "configure.ld",
-    "rust.llvm.legacy",
-    "rust.llvm.cflags",
-    "rust.llvm.cxxflags",
-    "rust.llvm.ldflags"
+    "rust.add_compiler_runtime"
+  ],
+
+  "rust_build": [
+    "rust_build.version",
+    "rust_build.current_stage0_versions",
+    "rust_build.frozen_release",
+    "rust_build.frozen_stage0_versions",
+    "rust_build.stage0_versions",
+    "rust_build.components",
+    "rust_build.use_cctools",
+    "rust_build.archiver",
+    "rust_build.ranlib",
+    "rust_build.llvm.legacy",
+    "rust_build.llvm.cflags",
+    "rust_build.llvm.cxxflags",
+    "rust_build.llvm.ldflags"
   ],
 
   "select": [
@@ -1015,7 +1304,7 @@
 
   "stub": [
     "stub.subport_name",
-    "stub.lib_dep"
+    "stub.readme"
   ],
 
   "textlive": [
