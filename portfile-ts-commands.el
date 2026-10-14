@@ -5,7 +5,7 @@
 ;; Author: Vadym-Valdis Yudaiev <judaew@outlook.com>
 ;; URL: https://github.com/judaew/portfile-ts-mode
 ;; SPDX-License-Identifier: MIT
-;; Version: 0.3.1
+;; Version: 0.3.2
 ;; Package-Requires: ((emacs "30.1"))
 ;; Keywords: languages, macports, portfile
 
