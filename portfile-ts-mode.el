@@ -252,7 +252,13 @@ MacPorts Portfiles typically use column 20."
         (forward-line -1)
         (end-of-line)
         (eq (char-before) ?\\))
-      (treesit-indent))
+      (let ((indent (save-excursion
+                      (forward-line -1)
+                      (current-indentation))))
+        (indent-line-to
+         (if (= indent 0)
+             portfile-ts-argument-indent-offset
+           indent))))
 
      ;; Line indentation
      ((<= (point) (+ bol (current-indentation)))
